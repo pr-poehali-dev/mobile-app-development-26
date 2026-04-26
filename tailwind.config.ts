@@ -19,15 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-				display: ['Rajdhani', 'system-ui', 'sans-serif'],
-			},
-			colors: {
-				neon: {
-					green: '#00ff87',
-					purple: '#a855f7',
-					blue: '#3b82f6',
-				},
+				sans: ['Montserrat', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

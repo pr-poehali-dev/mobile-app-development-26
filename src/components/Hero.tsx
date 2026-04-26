@@ -25,22 +25,16 @@ export default function Hero() {
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" />
-
-      <div className="relative z-10 text-center text-white px-6">
-        <p className="uppercase text-xs tracking-[0.4em] text-neon-green mb-6 neon-text">Профессиональное игровое оборудование</p>
-        <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-6 uppercase leading-none">
-          Победа<br /><span className="text-neon-green neon-text">начинается</span><br />с мыши
+      <div className="relative z-10 text-center text-white">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 uppercase">
+          Победа<br />начинается<br />с мыши
         </h1>
-        <p className="text-base md:text-lg max-w-xl mx-auto opacity-70 mb-10">
-          Сенсоры до 36 000 DPI · Задержка 1 мс · Для чемпионов
+        <p className="text-lg md:text-xl max-w-2xl mx-auto px-6 opacity-90">
+          Профессиональные игровые мыши с сенсорами до 36 000 DPI — для тех, кто играет на победу
         </p>
-        <a
-          href="#catalog"
-          className="inline-block border border-neon-green text-neon-green font-display uppercase tracking-widest px-10 py-4 text-lg hover:bg-neon-green hover:text-black transition-all duration-300 cursor-pointer neon-border"
-        >
+        <button className="mt-8 bg-white text-black px-8 py-3 text-sm uppercase tracking-widest font-bold hover:bg-neutral-200 transition-colors duration-300 cursor-pointer">
           Смотреть каталог
-        </a>
+        </button>
       </div>
     </div>
   );
