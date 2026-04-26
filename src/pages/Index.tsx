@@ -9,7 +9,7 @@ import CartDrawer from "@/components/CartDrawer";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">
       <Header />
       <Hero />
       <Featured />

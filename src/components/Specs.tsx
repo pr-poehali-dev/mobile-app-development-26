@@ -76,10 +76,10 @@ export default function Specs() {
   });
 
   return (
-    <section className="bg-neutral-950 py-24 px-6">
+    <section className="bg-background border-t border-border py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <p className="uppercase text-xs tracking-widest text-neutral-500 mb-4">Сравнение моделей</p>
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-16 leading-tight">
+        <p className="uppercase text-xs tracking-widest text-neon-green mb-4 neon-text">Сравнение моделей</p>
+        <h2 className="font-display text-3xl md:text-5xl uppercase mb-16 leading-tight">
           Найди свою мышь
         </h2>
 
@@ -89,8 +89,8 @@ export default function Specs() {
               key={product.name}
               className={`relative rounded-2xl overflow-hidden flex flex-col ${
                 product.highlight
-                  ? "bg-white text-neutral-900"
-                  : "bg-neutral-900 text-white border border-neutral-800"
+                  ? "bg-neon-green text-black neon-glow"
+                  : "bg-card border border-border hover:border-neon-green/50 transition-colors"
               }`}
             >
               <div className="relative h-52 overflow-hidden">
@@ -99,18 +99,18 @@ export default function Specs() {
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
-                <div className={`absolute top-3 left-3 text-xs uppercase tracking-widest px-3 py-1 rounded-full font-medium ${
+                <div className={`absolute top-3 left-3 text-xs uppercase tracking-widest px-3 py-1 rounded-full font-bold ${
                   product.highlight
-                    ? "bg-neutral-900 text-white"
-                    : "bg-neutral-800 text-neutral-300"
+                    ? "bg-black text-neon-green"
+                    : "bg-muted text-muted-foreground"
                 }`}>
                   {product.tag}
                 </div>
               </div>
 
               <div className="p-8 flex flex-col flex-1">
-                <h3 className="text-lg font-bold mb-1">{product.name}</h3>
-                <p className={`text-3xl font-bold mb-6 ${product.highlight ? "text-neutral-900" : "text-white"}`}>
+                <h3 className={`font-display text-lg uppercase mb-1 ${product.highlight ? "text-black" : "text-foreground"}`}>{product.name}</h3>
+                <p className={`text-3xl font-bold mb-6 ${product.highlight ? "text-black" : "text-neon-green"}`}>
                   {product.price}
                 </p>
 
@@ -119,14 +119,14 @@ export default function Specs() {
                     <div
                       key={key}
                       className={`flex items-center justify-between text-sm border-b pb-3 ${
-                        product.highlight ? "border-neutral-200" : "border-neutral-800"
+                        product.highlight ? "border-black/20" : "border-border"
                       }`}
                     >
-                      <div className={`flex items-center gap-2 ${product.highlight ? "text-neutral-500" : "text-neutral-400"}`}>
+                      <div className={`flex items-center gap-2 ${product.highlight ? "text-black/60" : "text-muted-foreground"}`}>
                         <Icon name={icon} size={14} />
                         <span>{label}</span>
                       </div>
-                      <span className="font-medium">{product.specs[key]}</span>
+                      <span className={`font-medium ${product.highlight ? "text-black" : "text-foreground"}`}>{product.specs[key]}</span>
                     </div>
                   ))}
                 </div>
@@ -135,8 +135,8 @@ export default function Specs() {
                   onClick={() => { addItem(specsProductToCartProduct(product)); setOpen(true); }}
                   className={`w-full py-3 text-sm uppercase tracking-widest font-bold transition-all duration-300 cursor-pointer rounded-lg ${
                     product.highlight
-                      ? "bg-neutral-900 text-white hover:bg-neutral-700"
-                      : "bg-transparent border border-neutral-700 text-white hover:bg-neutral-800"
+                      ? "bg-black text-neon-green hover:bg-black/80"
+                      : "bg-transparent border border-neon-green text-neon-green hover:bg-neon-green hover:text-black"
                   }`}
                 >
                   В корзину
