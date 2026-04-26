@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS products (id SERIAL PRIMARY KEY, category_id INTEGER REFERENCES categories(id), name VARCHAR(200) NOT NULL, description TEXT, price NUMERIC(10,2) NOT NULL, price_old NUMERIC(10,2), image_url TEXT, specs JSONB DEFAULT '{}', brand VARCHAR(100), in_stock BOOLEAN DEFAULT TRUE, created_at TIMESTAMP DEFAULT NOW());

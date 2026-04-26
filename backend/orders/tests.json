@@ -1,0 +1,23 @@
+{
+  "tests": [
+    {
+      "name": "Create order",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест Тестов",
+        "phone": "+79001234567",
+        "email": "test@test.com",
+        "items": [{"product_id": 1, "product_name": "Test Mouse", "quantity": 1, "price": 5490}]
+      },
+      "expectedStatus": 200
+    },
+    {
+      "name": "Missing fields",
+      "method": "POST",
+      "path": "/",
+      "body": {},
+      "expectedStatus": 400
+    }
+  ]
+}

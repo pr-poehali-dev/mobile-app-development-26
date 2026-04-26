@@ -1,6 +1,5 @@
 import Icon from "@/components/ui/icon";
-import OrderModal from "@/components/OrderModal";
-import { useState } from "react";
+import { useCart } from "@/lib/cart";
 
 const products = [
   {
@@ -60,7 +59,21 @@ const specLabels: { key: keyof typeof products[0]["specs"]; icon: string; label:
 ];
 
 export default function Specs() {
-  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
+  const { addItem, setOpen } = useCart();
+
+  const specsProductToCartProduct = (product: typeof products[0]) => ({
+    id: products.indexOf(product) + 1000,
+    name: product.name,
+    description: "",
+    price: parseFloat(product.price.replace(/[^\d]/g, "")),
+    price_old: null,
+    image_url: product.image,
+    specs: product.specs as Record<string, string | number>,
+    brand: product.name.split(" ")[0],
+    in_stock: true,
+    category_name: product.tag,
+    category_slug: "",
+  });
 
   return (
     <section className="bg-neutral-950 py-24 px-6">
@@ -119,14 +132,14 @@ export default function Specs() {
                 </div>
 
                 <button
-                  onClick={() => setSelectedProduct(product.name)}
+                  onClick={() => { addItem(specsProductToCartProduct(product)); setOpen(true); }}
                   className={`w-full py-3 text-sm uppercase tracking-widest font-bold transition-all duration-300 cursor-pointer rounded-lg ${
                     product.highlight
                       ? "bg-neutral-900 text-white hover:bg-neutral-700"
                       : "bg-transparent border border-neutral-700 text-white hover:bg-neutral-800"
                   }`}
                 >
-                  Купить
+                  В корзину
                 </button>
               </div>
             </div>
@@ -134,12 +147,6 @@ export default function Specs() {
         </div>
       </div>
 
-      {selectedProduct && (
-        <OrderModal
-          productName={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-        />
-      )}
     </section>
   );
 }

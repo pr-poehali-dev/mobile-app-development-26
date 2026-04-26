@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS orders (id SERIAL PRIMARY KEY, customer_id INTEGER REFERENCES customers(id), customer_name VARCHAR(200), customer_phone VARCHAR(30), customer_email VARCHAR(200), status VARCHAR(50) DEFAULT 'new', total NUMERIC(10,2), created_at TIMESTAMP DEFAULT NOW());
